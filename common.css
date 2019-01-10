@@ -18,6 +18,31 @@ table {
   border-spacing: 0;
   width: 100%;
 }
+/* colors */
+body {
+  background-color: #FFF6E5;
+  color: #333;
+}
+header {
+  background: #2186C4;
+  border-bottom: solid 1px #FFF6E5;
+  color: white;
+}
+#nav-content .head {
+  background: #2186C4;
+}
+a.comp-ui {
+  background-color: #2186C4;
+  color: white;
+}
+.radio-block input[type="radio"]:checked + label {
+  border-color: #2186C4;
+  background-color: #2186C4;
+  color: white;
+}
+.action .label-text {
+  background-color: #FFF6E5;
+}
 /* common */
 body {
   font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI","Noto Sans Japanese","ヒラギノ角ゴ ProN W3", Meiryo, sans-serif;
@@ -43,15 +68,18 @@ body {
   width: 100%;
   height: auto;
 }
-@media (min-width: 768px) {
-  .pc-none {
-    display: none !important;
-  }
-}
 @media (max-width: 768px) {
-  .sp-none {
-    display: none !important;
-  }
+.sp-none {
+  display: none !important;
+}
+}
+@media (min-width: 768px) {
+.pc-none {
+  display: none !important;
+}
+.main-content {
+  padding-left: 300px;
+}
 }
 /* overlay */
 .overlay {
@@ -126,17 +154,10 @@ header .login {
   vertical-align: middle;
 }
 header .menu {
-  text-align: left;
-  width: 40%;
   padding-top: 5px;
-}
-header .logo {
-  text-align: center;
-  width: 20%;
 }
 header .login {
   text-align: right;
-  width: 40%;
   position: relative;
 }
 header .logo img {
@@ -183,9 +204,30 @@ header .nav-login {
   font-weight: bold;
 }
 @media (max-width: 768px) {
+header .menu {
+  text-align: left;
+  width: 40%;
+}
+header .logo {
+  text-align: center;
+  width: 20%;
+}
+header .login {
+  width: 40%;
+}
 header .login .pulldown-menu {
   width: 115%;
   right: 1rem;
+}
+}
+@media (min-width: 768px) {
+header .logo {
+  text-align: left;
+  width: 50%;
+  padding-left: 1rem;
+}
+header .login {
+  width: 50%;
 }
 }
 /* nav-drawer */
@@ -194,16 +236,32 @@ header .login .pulldown-menu {
 }
 /*チェックボックス等は非表示に*/
 .nav-unshown {
-  display:none;
+  display: none;
 }
+/*中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  left: 0;
+  z-index: 999;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+}
+#nav-content nav a:first-child {
+}
+#nav-content nav a {
+  display: block;
+  padding: 1.5rem 1rem;
+  color: #333;
+}
+@media (max-width: 768px) {
 /*アイコンのスペース*/
 #nav-open {
   display: inline-block;
-  width: 100%;
   height: 22px;
   vertical-align: middle;
   padding-left: 1rem;
-  cursor: pointer;
 }
 /*ハンバーガーアイコンをCSSだけで表現*/
 #nav-open span, #nav-open span:before, #nav-open span:after {
@@ -234,20 +292,11 @@ header .login .pulldown-menu {
   opacity: 0;
   transition: .3s ease-in-out;
 }
-/*中身*/
 #nav-content {
-  overflow: auto;
-  position: fixed;
   top: 0;
-  left: 0;
-  z-index: 9999;/*最前面に*/
-  width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
-  max-width: 330px;/*最大幅（調整してください）*/
-  height: 100%;
-  background: #fff;/*背景色*/
-  transition: .3s ease-in-out;/*滑らかに表示*/
-  -webkit-transform: translateX(-105%);
+  transition: .1s ease-in-out;
   transform: translateX(-105%);/*左に隠しておく*/
+  -webkit-transform: translateX(-105%);
 }
 /*チェックが入ったらもろもろ表示*/
 #nav-input:checked ~ #nav-close {
@@ -255,9 +304,9 @@ header .login .pulldown-menu {
   opacity: .5;
 }
 #nav-input:checked ~ #nav-content {
-  -webkit-transform: translateX(0%);
+  transition: .3s ease-in-out;
   transform: translateX(0%);/*中身を表示（右へスライド）*/
-  box-shadow: 6px 0 25px rgba(0,0,0,.15);
+  -webkit-transform: translateX(0%);
 }
 #nav-content .head {
   display: table;
@@ -267,7 +316,7 @@ header .login .pulldown-menu {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  height: 60px;
+  height: 59px;
   position: relative;
 }
 #nav-content .head label:before {
@@ -277,16 +326,18 @@ header .login .pulldown-menu {
   top: 14%;
   left: 1rem;
 }
-#nav-content nav a:first-child {
-  margin-top: 1rem;
 }
-#nav-content nav a {
-  display: block;
-  padding: 1rem;
-  color: #333;
+@media (min-width: 768px) {
+#nav-content {
+  top: 60px;
+  width: 300px;
 }
 #nav-content nav a:hover {
   background-color: #ddd;
+}
+#nav-content .head {
+  display: none;
+}
 }
 /* comp-ui */
 .form-elem {
