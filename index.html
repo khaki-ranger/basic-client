@@ -39,7 +39,8 @@
   <div class="main-content">
     <section class="container">
       <div id="app">
-        <h1>Hello World!</h1>
+        <h1>Hello {{ name.toUpperCase() }}!</h1>
+        <p><input type="text" v-model="name"></p>
       </div>
     </section>
   </div>
