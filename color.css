@@ -1,0 +1,24 @@
+body {
+  background-color: #FFF6E5;
+  color: #333;
+}
+header {
+  background: #2186C4;
+  border-bottom: solid 1px #FFF6E5;
+  color: white;
+}
+#nav-content .head {
+  background: #2186C4;
+}
+a.comp-ui {
+  background-color: #2186C4;
+  color: white;
+}
+.radio-block input[type="radio"]:checked + label {
+  border-color: #2186C4;
+  background-color: #2186C4;
+  color: white;
+}
+.action .label-text {
+  background-color: #FFF6E5;
+}
